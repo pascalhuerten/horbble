@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqgshxur00tmh"]
+[gd_scene load_steps=7 format=3 uid="uid://bqgshxur00tmh"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_y55yf"]
+[ext_resource type="PackedScene" uid="uid://bc8hpwwundfqt" path="res://Blender/tree.blend" id="2_xh8id"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_j4gcn"]
 
@@ -42,3 +43,6 @@ environment = SubResource("Environment_y4mcs")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.06064, 0)
 light_color = Color(0.812539, 1, 0.981844, 1)
+
+[node name="tree" parent="." instance=ExtResource("2_xh8id")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.79286, -0.98494, 8.85621)
