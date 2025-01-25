@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://bdtaumm4onjxs"]
+[gd_scene load_steps=16 format=3 uid="uid://bdtaumm4onjxs"]
 
 [ext_resource type="Script" path="res://scripts/level_one.gd" id="1_t6r7c"]
 [ext_resource type="PackedScene" uid="uid://dbg4wlxww3qea" path="res://Blender/tree_circle_lv1.glb" id="2_l8rye"]
 [ext_resource type="PackedScene" uid="uid://3upu5nfpf8wr" path="res://Blender/creepy_tree.glb" id="3_dlisa"]
-[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/teleport_area.gd" id="4_vrvns"]
 [ext_resource type="AudioStream" uid="uid://d3uf22wn60qbm" path="res://audio/Creepy_ambience.mp3" id="5_tlumw"]
 [ext_resource type="AudioStream" uid="uid://d0yjcore3iq5" path="res://audio/Creepy_ambience_2.mp3" id="6_ae23d"]
 [ext_resource type="AudioStream" uid="uid://7nfvx351l6v4" path="res://audio/Creepy_ambience_3.mp3" id="7_bhu8e"]
@@ -20,9 +19,6 @@ albedo_color = Color(0.152168, 0.0678932, 0.00982807, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0tx2u"]
 material = SubResource("StandardMaterial3D_wglvm")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_m1hyj"]
-size = Vector3(92.9249, 1, 103.276)
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_8728r"]
 shuffle = true
@@ -68,16 +64,6 @@ shape = SubResource("WorldBoundaryShape3D_gjtt4")
 transform = Transform3D(46.9979, 0, 0, 0, 10.1175, 0, 0, 0, 52.0061, 0, 0, 0)
 mesh = SubResource("PlaneMesh_0tx2u")
 skeleton = NodePath("../..")
-
-[node name="XRToolsTeleportArea" type="Area3D" parent="." node_paths=PackedStringArray("target")]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
-visibility_parent = NodePath("../StaticBody3D/MeshInstance3D")
-script = ExtResource("4_vrvns")
-target = NodePath("CollisionShape3D")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XRToolsTeleportArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.281, 0.5, -0.176)
-shape = SubResource("BoxShape3D_m1hyj")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.54155, 0, 0.712194)

@@ -63,3 +63,6 @@ generate_at_origin = false
 [node name="LevelOne" parent="." instance=ExtResource("4_v4kb1")]
 
 [node name="Player" parent="." instance=ExtResource("6_sd7xk")]
+
+[editable path="LevelOne"]
+[editable path="Player"]

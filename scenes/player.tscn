@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjx4nrdka8ghe"]
+[gd_scene load_steps=8 format=3 uid="uid://bjx4nrdka8ghe"]
 
 [ext_resource type="Script" path="res://scripts/character.gd" id="1_hfbi3"]
 [ext_resource type="PackedScene" uid="uid://dueo8kodwu77b" path="res://Blender/light_bubble.glb" id="2_niira"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" path="res://addons/godot-xr-tools/functions/movement_direct.gd" id="4_sqkva"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/teleport_area.gd" id="5_du7x2"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="6_fmtps"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7twps"]
+size = Vector3(92.9249, 1, 103.276)
 
 [node name="Player" type="XROrigin3D"]
 script = ExtResource("1_hfbi3")
@@ -43,5 +46,9 @@ light_size = 0.03
 
 [node name="XRToolsTeleportArea" type="Area3D" parent="RightHand"]
 script = ExtResource("5_du7x2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightHand/XRToolsTeleportArea"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.281, 0.5, -0.176)
+shape = SubResource("BoxShape3D_7twps")
 
 [node name="PlayerBody" parent="." instance=ExtResource("6_fmtps")]
