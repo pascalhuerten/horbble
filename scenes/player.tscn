@@ -29,7 +29,7 @@ light_size = 0.03
 
 [node name="light_bubble" parent="LeftHand" instance=ExtResource("2_niira")]
 
-[node name="XRToolsMovementDirect" type="Node" parent="LeftHand"]
+[node name="XRToolsMovementDirect" type="Node" parent="LeftHand" groups=["movement_providers"]]
 script = ExtResource("4_sqkva")
 order = 5
 strafe = true
