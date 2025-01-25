@@ -10,14 +10,14 @@
 [node name="PickableObject" instance=ExtResource("1_ucmmo")]
 
 [node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(0.292289, 0, 0, 0, 0.292289, 0, 0, 0, 0.292289, 0, 0, 0)
+transform = Transform3D(0.401498, 0, 0, 0, 0.401498, 0, 0, 0, 0.401498, 0, 0, 0)
 shape = SubResource("SphereShape3D_41uj5")
 
 [node name="light_bubble" parent="." index="1" instance=ExtResource("2_updsw")]
 transform = Transform3D(1.30211, 0, 0, 0, 1.30211, 0, 0, 0, 1.30211, 0, 0, 0)
 
 [node name="GrabPointHandRight" parent="." index="2" instance=ExtResource("3_4cp5n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0746603, 0, 0)
+transform = Transform3D(1.2674, 0, 0, 0, 1.2674, 0, 0, 0, 1.2674, 0.0746603, 0.0855661, -0.0901116)
 
 [node name="GrabPointHandLeft" parent="." index="3" instance=ExtResource("4_ntw0c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0800857, 0, 0)
+transform = Transform3D(1.27331, 0, 0, 0, 1.27331, 0, 0, 0, 1.27331, -0.0800857, 0.0782263, -0.0861605)
