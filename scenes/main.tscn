@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqgshxur00tmh"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_y55yf"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/xr/start_xr.gd" id="2_5734l"]
+[ext_resource type="PackedScene" uid="uid://c8yjq8h78y1eq" path="res://character.tscn" id="2_so0o3"]
+
+[sub_resource type="Sky" id="Sky_hwcax"]
+
+[sub_resource type="Environment" id="Environment_y4mcs"]
+background_mode = 2
+sky = SubResource("Sky_hwcax")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2clve"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_y55yf")
+
+[node name="XRToolsStartXR" type="Node" parent="."]
+script = ExtResource("2_5734l")
+
+[node name="Character" parent="." instance=ExtResource("2_so0o3")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_y4mcs")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.212911, 0.977072, 0, -0.977072, -0.212911, 0.00232983, 5.62006, -1.53302)
+light_color = Color(0.812539, 1, 0.981844, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.64521, 0, 0, 0, 1, 0, 0, 0, 5.14021, 0, 0, 0)
+mesh = SubResource("PlaneMesh_2clve")
