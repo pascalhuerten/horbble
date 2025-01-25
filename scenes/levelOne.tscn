@@ -3,6 +3,14 @@
 [ext_resource type="Script" path="res://scripts/level_one.gd" id="1_t6r7c"]
 [ext_resource type="PackedScene" uid="uid://dbg4wlxww3qea" path="res://Blender/tree_circle_lv1.glb" id="2_l8rye"]
 [ext_resource type="PackedScene" uid="uid://3upu5nfpf8wr" path="res://Blender/creepy_tree.glb" id="3_dlisa"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/teleport_area.gd" id="4_vrvns"]
+[ext_resource type="AudioStream" uid="uid://d3uf22wn60qbm" path="res://audio/Creepy_ambience.mp3" id="5_tlumw"]
+[ext_resource type="AudioStream" uid="uid://d0yjcore3iq5" path="res://audio/Creepy_ambience_2.mp3" id="6_ae23d"]
+[ext_resource type="AudioStream" uid="uid://7nfvx351l6v4" path="res://audio/Creepy_ambience_3.mp3" id="7_bhu8e"]
+[ext_resource type="AudioStream" uid="uid://dyvchfb1xs1ne" path="res://audio/Creepy_ambience_4.mp3" id="8_trt6f"]
+[ext_resource type="AudioStream" uid="uid://b8edcbjw8tvr7" path="res://audio/Creepy_ambience_5.mp3" id="9_s5enj"]
+[ext_resource type="AudioStream" uid="uid://bnmh7psgefe6e" path="res://audio/Creepy_ambience_6.mp3" id="10_wocx8"]
+[ext_resource type="AudioStream" uid="uid://ox8pjrvuxp1a" path="res://audio/Creepy_ambience_7.mp3" id="11_448l5"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_gjtt4"]
 
@@ -15,16 +23,16 @@ material = SubResource("StandardMaterial3D_wglvm")
 [sub_resource type="BoxShape3D" id="BoxShape3D_m1hyj"]
 size = Vector3(92.9249, 1, 103.276)
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_grfbo"]
-playback_mode = 1
-streams_count = 7
-stream_0/stream = ExtResource("5_tlumw")
-stream_1/stream = ExtResource("6_ae23d")
-stream_2/stream = ExtResource("7_bhu8e")
-stream_3/stream = ExtResource("8_trt6f")
-stream_4/stream = ExtResource("9_s5enj")
-stream_5/stream = ExtResource("10_wocx8")
-stream_6/stream = ExtResource("11_448l5")
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_8728r"]
+shuffle = true
+stream_count = 7
+stream_0 = ExtResource("5_tlumw")
+stream_1 = ExtResource("6_ae23d")
+stream_2 = ExtResource("7_bhu8e")
+stream_3 = ExtResource("8_trt6f")
+stream_4 = ExtResource("9_s5enj")
+stream_5 = ExtResource("10_wocx8")
+stream_6 = ExtResource("11_448l5")
 
 [node name="LevelOne" type="Node3D"]
 transform = Transform3D(-0.269827, 0, 0.962909, 0, 1, 0, -0.962909, 0, -0.269827, -1.54535, 0, 0.621882)
@@ -71,9 +79,10 @@ shape = SubResource("BoxShape3D_m1hyj")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.54155, 0, 0.712194)
-stream = SubResource("AudioStreamRandomizer_grfbo")
+stream = SubResource("AudioStreamPlaylist_8728r")
 attenuation_model = 3
-max_db = 2.0
+volume_db = 1.0
+max_db = 1.0
 autoplay = true
 max_distance = 100.0
 playback_type = 1
