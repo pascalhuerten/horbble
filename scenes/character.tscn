@@ -20,6 +20,10 @@ tracker = &"left_hand"
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("BoxMesh_j4gcn")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="LeftHand"]
+light_color = Color(0.65, 1, 0.8775, 1)
+light_size = 0.03
+
 [node name="RightHand" type="XRController3D" parent="."]
 transform = Transform3D(0.410921, 0, 0, 0, 0.410921, 0, 0, 0, 0.410921, 0.5, 1.1, -0.5)
 tracker = &"right_hand"
@@ -27,3 +31,7 @@ tracker = &"right_hand"
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RightHand"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("BoxMesh_s1i0h")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="RightHand"]
+light_color = Color(0.65098, 1, 0.878431, 1)
+light_size = 0.03

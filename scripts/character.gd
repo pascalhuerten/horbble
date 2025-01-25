@@ -8,11 +8,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
-
-func _input(event):
-	if event.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("ui_up"):
 		print("Moving character forward")
 		var direction = -camera.global_transform.basis.z.normalized()
-		global_transform.origin += direction
+		global_transform.origin += direction * 0.1
 		print("Character position: ", global_transform.origin)
+
+# func _input(event):
