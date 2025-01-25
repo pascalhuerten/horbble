@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqgshxur00tmh"]
+[gd_scene load_steps=7 format=3 uid="uid://bqgshxur00tmh"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_y55yf"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/xr/start_xr.gd" id="2_5734l"]
-[ext_resource type="PackedScene" uid="uid://c8yjq8h78y1eq" path="res://character.tscn" id="2_so0o3"]
-[ext_resource type="PackedScene" uid="uid://b2qcla1p5i5ny" path="res://Blender/tree_circle.glb" id="4_5or6j"]
+[ext_resource type="PackedScene" uid="uid://c8yjq8h78y1eq" path="res://scenes/character.tscn" id="2_so0o3"]
 
 [sub_resource type="Sky" id="Sky_hwcax"]
 
@@ -25,12 +24,9 @@ script = ExtResource("2_5734l")
 environment = SubResource("Environment_y4mcs")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.00681159, 0.986965, 0.160789, -0.991852, 0.0271234, -0.124473, -0.127211, -0.158631, 0.979108, 3.72606, 2.53008, -0.498071)
+transform = Transform3D(0.00681159, 0.986965, 0.160789, -0.487553, -0.137108, 0.862261, 0.873067, -0.0842666, 0.480264, 3.72606, 25.9677, 15.7072)
 light_color = Color(0.812539, 1, 0.981844, 1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(102.293, 0, 0, 0, 22.0213, 0, 0, 0, 113.194, 0, 0, 0)
+transform = Transform3D(56.8456, 0, 0, 0, 12.2375, 0, 0, 0, 62.9031, 0, 0, 0)
 mesh = SubResource("PlaneMesh_2clve")
-
-[node name="tree_circle" parent="." instance=ExtResource("4_5or6j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.2588, 0, -31.9744)

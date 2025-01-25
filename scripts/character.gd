@@ -1,22 +1,18 @@
 extends XROrigin3D
 
+var camera
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	camera = $XRCamera3D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _input(event):
-	if Globals.vr_controls:
-		pass
-	else:
-		# Mouse in viewport coordinates.
-		if event is InputEventMouseButton:
-			print("Mouse Click/Unclick at: ", event.position)
-		elif event is InputEventMouseMotion:
-			print("Mouse Motion at: ", event.position)
-
-		# Print the size of the viewport.
-		print("Viewport Resolution is: ", get_viewport().get_visible_rect().size)
+	if event.is_action_pressed("ui_up"):
+		print("Moving character forward")
+		var direction = -camera.global_transform.basis.z.normalized()
+		global_transform.origin += direction
+		print("Character position: ", global_transform.origin)

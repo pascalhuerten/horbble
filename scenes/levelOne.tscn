@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdtaumm4onjxs"]
+
+[ext_resource type="PackedScene" uid="uid://b2qcla1p5i5ny" path="res://Blender/tree_circle.glb" id="1_7opun"]
+
+[node name="LevelOne" type="Node3D"]
+transform = Transform3D(-0.269827, 0, 0.962909, 0, 1, 0, -0.962909, 0, -0.269827, -1.54535, 0, 0.621882)
+
+[node name="tree_circle" parent="." instance=ExtResource("1_7opun")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 55.759, 0, -24.3892)
