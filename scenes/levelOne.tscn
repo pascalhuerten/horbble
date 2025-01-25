@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bdtaumm4onjxs"]
+[gd_scene load_steps=19 format=3 uid="uid://bdtaumm4onjxs"]
 
 [ext_resource type="Script" path="res://scripts/level_one.gd" id="1_t6r7c"]
 [ext_resource type="PackedScene" uid="uid://dbg4wlxww3qea" path="res://Blender/tree_circle_lv1.glb" id="2_l8rye"]
@@ -10,7 +10,9 @@
 [ext_resource type="AudioStream" uid="uid://b8edcbjw8tvr7" path="res://audio/Creepy_ambience_5.mp3" id="9_s5enj"]
 [ext_resource type="AudioStream" uid="uid://bnmh7psgefe6e" path="res://audio/Creepy_ambience_6.mp3" id="10_wocx8"]
 [ext_resource type="AudioStream" uid="uid://ox8pjrvuxp1a" path="res://audio/Creepy_ambience_7.mp3" id="11_448l5"]
+[ext_resource type="PackedScene" uid="uid://cm00mwnrr6mw8" path="res://scenes/bubbleFruit.tscn" id="12_ct1tg"]
 [ext_resource type="AudioStream" uid="uid://bg6ey8mkajfrf" path="res://audio/Crying_moaning_ambience.mp3" id="12_k7qx1"]
+[ext_resource type="AudioStream" uid="uid://cijjgk1d1aafd" path="res://audio/Laugh_spooky_4.mp3" id="13_c78m1"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_gjtt4"]
 
@@ -32,6 +34,10 @@ stream_5 = ExtResource("10_wocx8")
 stream_6 = ExtResource("11_448l5")
 stream_7 = ExtResource("12_k7qx1")
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_a6nr3"]
+height = 2.12558
+radius = 0.882634
+
 [node name="LevelOne" type="Node3D"]
 transform = Transform3D(-0.269827, 0, 0.962909, 0, 1, 0, -0.962909, 0, -0.269827, -1.54535, 0, 0.621882)
 script = ExtResource("1_t6r7c")
@@ -43,15 +49,31 @@ transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.98238
 [node name="creepy_tree" parent="." instance=ExtResource("3_dlisa")]
 transform = Transform3D(-0.368043, 0, 0.929808, 0, 1, 0, -0.929808, 0, -0.368043, 5.52694, 0, -0.555978)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="creepy_tree"]
+[node name="SpotLight3D" type="SpotLight3D" parent="creepy_tree" groups=["Lights"]]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0.276428, 3.25168, -0.339267)
 light_color = Color(1, 0.49, 0.847, 1)
 light_energy = 2.676
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="creepy_tree"]
+[node name="SpotLight3D2" type="SpotLight3D" parent="creepy_tree" groups=["Lights"]]
 transform = Transform3D(0.999996, 0, 0.00268772, 0, 1, 0, -0.00268772, 0, 0.999996, -0.344957, 3.27708, -0.614305)
 light_color = Color(1, 0.490196, 0.847059, 1)
 light_energy = 2.676
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="creepy_tree" groups=["Lights"]]
+transform = Transform3D(0.819222, -0.568173, 0.0778277, 0.149039, 0.0798865, -0.985599, 0.553773, 0.819023, 0.150125, 0, 1.17985, 0)
+light_color = Color(1, 0.490196, 0.847059, 1)
+light_energy = 8.0
+light_size = 0.705
+spot_range = 3.15557
+spot_angle = 30.7478
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="creepy_tree" groups=["Lights"]]
+transform = Transform3D(-0.761438, -0.647112, -0.0381878, 0.0110769, -0.0718901, 0.997351, -0.648143, 0.758998, 0.0619079, 0, 8.90729, 0)
+light_color = Color(1, 0.490196, 0.847059, 1)
+light_energy = 8.0
+light_size = 0.705
+spot_range = 8.0
+spot_angle = 13.574
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0161517, 0)
@@ -74,3 +96,21 @@ max_db = 1.0
 autoplay = true
 max_distance = 100.0
 playback_type = 1
+
+[node name="Bubble" parent="." instance=ExtResource("12_ct1tg")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 5.29771, 4.29719, -0.4454)
+
+[node name="DropOff" type="Area3D" parent="."]
+transform = Transform3D(-0.368043, 0, 0.929808, 0, 1, 0, -0.929808, 0, -0.368043, 5.52694, 0.352963, -0.555977)
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DropOff"]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 2.38419e-07, 0, 4.76837e-07)
+shape = SubResource("CylinderShape3D_a6nr3")
+
+[node name="HoverTarget" type="Node3D" parent="."]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 5.37747, 2.23313, -0.445268)
+
+[node name="Laugh" type="AudioStreamPlayer3D" parent="HoverTarget"]
+stream = ExtResource("13_c78m1")

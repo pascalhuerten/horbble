@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqgshxur00tmh"]
+[gd_scene load_steps=10 format=3 uid="uid://bqgshxur00tmh"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_y55yf"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/xr/start_xr.gd" id="2_5734l"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bdtaumm4onjxs" path="res://scenes/levelOne.tscn" id="4_v4kb1"]
 [ext_resource type="Script" path="res://addons/starlight/StarGenerator.gd" id="5_8kh50"]
 [ext_resource type="PackedScene" uid="uid://bjx4nrdka8ghe" path="res://scenes/player.tscn" id="6_sd7xk"]
-[ext_resource type="PackedScene" uid="uid://dueo8kodwu77b" path="res://Blender/light_bubble.glb" id="7_s55m3"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_yfhov"]
 
@@ -64,11 +63,6 @@ generate_at_origin = false
 [node name="LevelOne" parent="." instance=ExtResource("4_v4kb1")]
 
 [node name="Player" parent="." instance=ExtResource("6_sd7xk")]
-
-[node name="GrabBubble" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.18647, 0.566097, -1.78518)
-
-[node name="light_bubble" parent="GrabBubble" instance=ExtResource("7_s55m3")]
 
 [editable path="LevelOne"]
 [editable path="Player"]

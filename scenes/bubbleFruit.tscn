@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://cm00mwnrr6mw8"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_ucmmo"]
+[ext_resource type="PackedScene" uid="uid://dueo8kodwu77b" path="res://Blender/light_bubble.glb" id="2_updsw"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="3_4cp5n"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="4_ntw0c"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_41uj5"]
+
+[node name="PickableObject" instance=ExtResource("1_ucmmo")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(0.180683, 0, 0, 0, 0.180683, 0, 0, 0, 0.180683, 0, 0, 0)
+shape = SubResource("SphereShape3D_41uj5")
+
+[node name="light_bubble" parent="." index="1" instance=ExtResource("2_updsw")]
+transform = Transform3D(0.482906, 0, 0, 0, 0.482906, 0, 0, 0, 0.482906, 0, 0, 0)
+
+[node name="GrabPointHandRight" parent="." index="2" instance=ExtResource("3_4cp5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0746603, 0, 0)
+
+[node name="GrabPointHandLeft" parent="." index="3" instance=ExtResource("4_ntw0c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0800857, 0, 0)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjx4nrdka8ghe"]
+[gd_scene load_steps=9 format=3 uid="uid://bjx4nrdka8ghe"]
 
 [ext_resource type="Script" path="res://scripts/character.gd" id="1_hfbi3"]
 [ext_resource type="PackedScene" uid="uid://dueo8kodwu77b" path="res://Blender/light_bubble.glb" id="2_niira"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="3_43ns7"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/functions/movement_direct.gd" id="4_sqkva"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/functions/function_pickup.gd" id="4_wjjae"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/teleport_area.gd" id="5_du7x2"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="6_fmtps"]
 
@@ -33,6 +34,9 @@ script = ExtResource("4_sqkva")
 order = 5
 strafe = true
 
+[node name="XRToolsFunctionPickup" type="Node3D" parent="LeftHand"]
+script = ExtResource("4_wjjae")
+
 [node name="RightHand" type="XRController3D" parent="."]
 transform = Transform3D(0.410921, 0, 0, 0, 0.410921, 0, 0, 0, 0.410921, 0.5, 1.1, -0.5)
 tracker = &"right_hand"
@@ -52,5 +56,8 @@ shape = SubResource("BoxShape3D_7twps")
 
 [node name="MovementTurn" parent="RightHand" instance=ExtResource("3_43ns7")]
 turn_mode = 1
+
+[node name="XRToolsFunctionPickup" type="Node3D" parent="RightHand"]
+script = ExtResource("4_wjjae")
 
 [node name="PlayerBody" parent="." instance=ExtResource("6_fmtps")]
