@@ -10,7 +10,7 @@ func _process(delta: float) -> void:
 
 func _input(event):
 	if Globals.vr_controls:
-		Globals.xr_interface.input(event)
+		pass
 	else:
 		# Mouse in viewport coordinates.
 		if event is InputEventMouseButton:
