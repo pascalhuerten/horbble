@@ -10,8 +10,13 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed("ui_up"):
 		_move_forward()
+	elif Input.is_action_pressed("ui_down"):
+		_move_backward()
 
 func _move_forward():
 	var direction = -camera.global_transform.basis.z.normalized()
 	global_transform.origin += direction * 0.1
-	print("Character position: ", global_transform.origin)
+
+func _move_backward():
+	var direction = camera.global_transform.basis.z.normalized()
+	global_transform.origin += direction * 0.1

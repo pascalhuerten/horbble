@@ -39,12 +39,9 @@ func _process(_delta):
 	if character and current_level:
 		update_current_level()
 		var distance = character.global_transform.origin.distance_to(current_level.global_transform.origin)
-		print("Distance to current level: ", distance)
 		# Update the level_size based on the dimensions
 		var level_size = current_level.radius + max_distance
-		print("Level size: ", level_size)
 		if distance > level_size:
-			print("Character has moved beyond the current level")
 			# Rotate camera towards the center of the level
 			character.look_at(current_level.global_transform.origin, Vector3.UP)
 			camera.look_at(current_level.global_transform.origin, Vector3.UP)
@@ -57,7 +54,6 @@ func _process(_delta):
 		# Adjust fog density and ambient light intensity based on distance
 		# var threshold_distance = level_size * 0.5
 		var factor = clamp(distance / level_size, 0.0, 1.0)
-		print("Factor: ", factor)
 		var threshhold = 0.3
 		if factor < threshhold:
 			factor = threshhold
@@ -86,5 +82,4 @@ func update_current_level():
 			closest_level = level
 	if closest_level:
 		if closest_level != current_level:
-			print("Update current level: ", closest_level)
 			current_level = closest_level

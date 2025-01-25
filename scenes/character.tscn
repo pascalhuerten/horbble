@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://x2thwet2waa2"]
+[gd_scene load_steps=7 format=3 uid="uid://x2thwet2waa2"]
 
 [ext_resource type="Script" path="res://scripts/character.gd" id="1_xtnt5"]
 [ext_resource type="PackedScene" uid="uid://dueo8kodwu77b" path="res://Blender/light_bubble.glb" id="2_0biwv"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="3_vcddi"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/functions/movement_direct.gd" id="4_5ywkp"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="4_7aj1t"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/teleport_area.gd" id="5_r7atr"]
 
 [node name="Character" type="Node3D"]
 
@@ -12,6 +14,8 @@ script = ExtResource("1_xtnt5")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="AudioListener3D" type="AudioListener3D" parent="XROrigin3D/XRCamera3D"]
 
 [node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(0.410921, 0, 0, 0, 0.410921, 0, 0, 0, 0.410921, -0.5, 1.1, -0.5)
@@ -23,6 +27,12 @@ light_size = 0.03
 
 [node name="light_bubble" parent="XROrigin3D/LeftHand" instance=ExtResource("2_0biwv")]
 
+[node name="MovementTurn" parent="XROrigin3D/LeftHand" instance=ExtResource("3_vcddi")]
+
+[node name="XRToolsMovementDirect" type="Node" parent="XROrigin3D/LeftHand"]
+script = ExtResource("4_5ywkp")
+strafe = true
+
 [node name="RightHand" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(0.410921, 0, 0, 0, 0.410921, 0, 0, 0, 0.410921, 0.5, 1.1, -0.5)
 tracker = &"right_hand"
@@ -33,6 +43,7 @@ light_size = 0.03
 
 [node name="light_bubble" parent="XROrigin3D/RightHand" instance=ExtResource("2_0biwv")]
 
-[node name="MovementTurn" parent="XROrigin3D/RightHand" instance=ExtResource("3_vcddi")]
+[node name="XRToolsTeleportArea" type="Area3D" parent="XROrigin3D/RightHand"]
+script = ExtResource("5_r7atr")
 
 [node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("4_7aj1t")]
