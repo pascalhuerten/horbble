@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bdtaumm4onjxs"]
+[gd_scene load_steps=18 format=3 uid="uid://bdtaumm4onjxs"]
 
 [ext_resource type="Script" path="res://scripts/level_one.gd" id="1_t6r7c"]
 [ext_resource type="PackedScene" uid="uid://dbg4wlxww3qea" path="res://Blender/tree_circle_lv1.glb" id="2_l8rye"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://b8edcbjw8tvr7" path="res://audio/Creepy_ambience_5.mp3" id="9_s5enj"]
 [ext_resource type="AudioStream" uid="uid://bnmh7psgefe6e" path="res://audio/Creepy_ambience_6.mp3" id="10_wocx8"]
 [ext_resource type="AudioStream" uid="uid://ox8pjrvuxp1a" path="res://audio/Creepy_ambience_7.mp3" id="11_448l5"]
+[ext_resource type="AudioStream" uid="uid://bg6ey8mkajfrf" path="res://audio/Crying_moaning_ambience.mp3" id="12_k7qx1"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_gjtt4"]
 
@@ -25,7 +26,7 @@ size = Vector3(92.9249, 1, 103.276)
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_8728r"]
 shuffle = true
-stream_count = 7
+stream_count = 8
 stream_0 = ExtResource("5_tlumw")
 stream_1 = ExtResource("6_ae23d")
 stream_2 = ExtResource("7_bhu8e")
@@ -33,6 +34,7 @@ stream_3 = ExtResource("8_trt6f")
 stream_4 = ExtResource("9_s5enj")
 stream_5 = ExtResource("10_wocx8")
 stream_6 = ExtResource("11_448l5")
+stream_7 = ExtResource("12_k7qx1")
 
 [node name="LevelOne" type="Node3D"]
 transform = Transform3D(-0.269827, 0, 0.962909, 0, 1, 0, -0.962909, 0, -0.269827, -1.54535, 0, 0.621882)

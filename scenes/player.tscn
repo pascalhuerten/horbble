@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjx4nrdka8ghe"]
+
+[ext_resource type="Script" path="res://scripts/character.gd" id="1_hfbi3"]
+[ext_resource type="PackedScene" uid="uid://dueo8kodwu77b" path="res://Blender/light_bubble.glb" id="2_niira"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="3_43ns7"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/functions/movement_direct.gd" id="4_sqkva"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/teleport_area.gd" id="5_du7x2"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="6_fmtps"]
+
+[node name="Player" type="XROrigin3D"]
+script = ExtResource("1_hfbi3")
+
+[node name="XRCamera3D" type="XRCamera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="AudioListener3D" type="AudioListener3D" parent="XRCamera3D"]
+
+[node name="LeftHand" type="XRController3D" parent="."]
+transform = Transform3D(0.410921, 0, 0, 0, 0.410921, 0, 0, 0, 0.410921, -0.5, 1.1, -0.5)
+tracker = &"left_hand"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="LeftHand"]
+light_color = Color(0.65, 1, 0.8775, 1)
+light_size = 0.03
+
+[node name="light_bubble" parent="LeftHand" instance=ExtResource("2_niira")]
+
+[node name="MovementTurn" parent="LeftHand" instance=ExtResource("3_43ns7")]
+
+[node name="XRToolsMovementDirect" type="Node" parent="LeftHand"]
+script = ExtResource("4_sqkva")
+strafe = true
+
+[node name="RightHand" type="XRController3D" parent="."]
+transform = Transform3D(0.410921, 0, 0, 0, 0.410921, 0, 0, 0, 0.410921, 0.5, 1.1, -0.5)
+tracker = &"right_hand"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="RightHand"]
+light_color = Color(0.65098, 1, 0.878431, 1)
+light_size = 0.03
+
+[node name="light_bubble" parent="RightHand" instance=ExtResource("2_niira")]
+
+[node name="XRToolsTeleportArea" type="Area3D" parent="RightHand"]
+script = ExtResource("5_du7x2")
+
+[node name="PlayerBody" parent="." instance=ExtResource("6_fmtps")]

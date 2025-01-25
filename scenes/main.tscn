@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_y55yf"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/xr/start_xr.gd" id="2_5734l"]
-[ext_resource type="PackedScene" uid="uid://x2thwet2waa2" path="res://scenes/character.tscn" id="2_so0o3"]
 [ext_resource type="PackedScene" uid="uid://b0nt4n13a6448" path="res://addons/starlight/Stars.tscn" id="4_b4mbo"]
 [ext_resource type="PackedScene" uid="uid://bdtaumm4onjxs" path="res://scenes/levelOne.tscn" id="4_v4kb1"]
 [ext_resource type="Script" path="res://addons/starlight/StarGenerator.gd" id="5_8kh50"]
+[ext_resource type="PackedScene" uid="uid://bjx4nrdka8ghe" path="res://scenes/player.tscn" id="6_sd7xk"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_yfhov"]
 
@@ -43,13 +43,13 @@ environment = SubResource("Environment_y4mcs")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.00681159, 0.986965, 0.160789, -0.487553, -0.137108, 0.862261, 0.873067, -0.0842665, 0.480264, 10.2622, 36.8803, 27.4538)
 light_color = Color(0.788, 0.76, 1, 1)
-light_energy = 2.3
+light_energy = 1.5
 shadow_enabled = true
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.00681159, 0.986965, 0.160789, -0.0844691, -0.15965, 0.983553, 0.996403, -0.0202813, 0.0822806, 3.72606, 36.8803, -5.58069)
 light_color = Color(0.974, 1, 0.97, 1)
-light_energy = 0.1
+light_energy = 0.3
 light_volumetric_fog_energy = 5.687
 shadow_enabled = true
 
@@ -62,5 +62,4 @@ generate_at_origin = false
 
 [node name="LevelOne" parent="." instance=ExtResource("4_v4kb1")]
 
-[node name="Character" parent="." instance=ExtResource("2_so0o3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.813922, 0)
+[node name="Player" parent="." instance=ExtResource("6_sd7xk")]
