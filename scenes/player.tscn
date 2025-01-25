@@ -28,10 +28,9 @@ light_size = 0.03
 
 [node name="light_bubble" parent="LeftHand" instance=ExtResource("2_niira")]
 
-[node name="MovementTurn" parent="LeftHand" instance=ExtResource("3_43ns7")]
-
 [node name="XRToolsMovementDirect" type="Node" parent="LeftHand"]
 script = ExtResource("4_sqkva")
+order = 5
 strafe = true
 
 [node name="RightHand" type="XRController3D" parent="."]
@@ -50,5 +49,8 @@ script = ExtResource("5_du7x2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RightHand/XRToolsTeleportArea"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.281, 0.5, -0.176)
 shape = SubResource("BoxShape3D_7twps")
+
+[node name="MovementTurn" parent="RightHand" instance=ExtResource("3_43ns7")]
+turn_mode = 1
 
 [node name="PlayerBody" parent="." instance=ExtResource("6_fmtps")]
