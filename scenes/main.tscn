@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_y55yf"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/xr/start_xr.gd" id="2_5734l"]
 [ext_resource type="PackedScene" uid="uid://c8yjq8h78y1eq" path="res://character.tscn" id="2_so0o3"]
-[ext_resource type="PackedScene" uid="uid://d0hgdqjiue20a" path="res://Blender/tree.glb" id="4_jxvjh"]
+[ext_resource type="PackedScene" uid="uid://b2qcla1p5i5ny" path="res://Blender/tree_circle.glb" id="4_5or6j"]
 
 [sub_resource type="Sky" id="Sky_hwcax"]
 
@@ -29,8 +29,8 @@ transform = Transform3D(0.00681159, 0.986965, 0.160789, -0.991852, 0.0271234, -0
 light_color = Color(0.812539, 1, 0.981844, 1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(4.64521, 0, 0, 0, 1, 0, 0, 0, 5.14021, 0, 0, 0)
+transform = Transform3D(102.293, 0, 0, 0, 22.0213, 0, 0, 0, 113.194, 0, 0, 0)
 mesh = SubResource("PlaneMesh_2clve")
 
-[node name="tree" parent="." instance=ExtResource("4_jxvjh")]
-transform = Transform3D(-0.269827, 0, 0.962909, 0, 1, 0, -0.962909, 0, -0.269827, -1.54535, 0, 0.621882)
+[node name="tree_circle" parent="." instance=ExtResource("4_5or6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.2588, 0, -31.9744)
