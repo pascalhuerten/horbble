@@ -40,8 +40,6 @@ func _process(_delta):
 	if player and current_level:
 		update_current_level()
 		
-		print("player.global_transform.origin:", player.global_transform.origin)
-		print("current_level.global_transform.origin:", current_level.global_transform.origin)
 		var distance = player.global_transform.origin.distance_to(current_level.global_transform.origin)
 		# Update the level_size based on the dimensions
 		var level_size = current_level.radius + max_distance
