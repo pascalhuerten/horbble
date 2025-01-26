@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd2dj5yrh11s2"]
+
+[ext_resource type="Script" path="res://scripts/level_one.gd" id="1_v1fhn"]
+[ext_resource type="PackedScene" uid="uid://tbts3g3ul6yk" path="res://Blender/Endtext.glb" id="2_pims8"]
+
+[node name="LevelOne" type="Node3D"]
+transform = Transform3D(-0.269827, 0, 0.962909, 0, 1, 0, -0.962909, 0, -0.269827, 0, 0, 0)
+script = ExtResource("1_v1fhn")
+radius = 20
+max_distance = null
+
+[node name="Endtext" parent="." instance=ExtResource("2_pims8")]
+transform = Transform3D(0.0675973, -0.997713, 4.36114e-08, 0, -4.37114e-08, -1, 0.997713, 0.0675973, -2.95477e-09, 0, 8.51414, 0)
