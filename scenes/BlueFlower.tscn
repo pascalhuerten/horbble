@@ -12,19 +12,19 @@ radius = 0.341985
 [node name="PickableObject" groups=["Flowers"] instance=ExtResource("1_jqf7r")]
 
 [node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(0.534867, 0, 0, 0, 0.534867, 0, 0, 0, 0.534867, 0, -0.0644405, 0)
+transform = Transform3D(0.376795, 0, 0, 0, 0.376795, 0, 0, 0, 0.376795, 0, -0.0534415, 0)
 shape = SubResource("CylinderShape3D_6yuku")
 
 [node name="flower" parent="." index="1" instance=ExtResource("2_fx3l4")]
-transform = Transform3D(0.534867, 0, 0, 0, 0.534867, 0, 0, 0, 0.534867, 0, 0.0975633, 0)
+transform = Transform3D(0.376795, 0, 0, 0, 0.376795, 0, 0, 0, 0.376795, 0, 0.0606845, 0)
 
 [node name="GrabPointHandLeft" parent="." index="2" instance=ExtResource("3_feqhe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.201104, 0)
+transform = Transform3D(0.704465, 0, 0, 0, 0.704465, 0, 0, 0, 0.704465, 0, -0.149716, 0)
 
 [node name="GrabPointHandRight" parent="." index="3" instance=ExtResource("4_3kuke")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.221913, 0)
+transform = Transform3D(0.704465, 0, 0, 0, 0.704465, 0, 0, 0, 0.704465, 0, -0.164375, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.253778, 0)
+transform = Transform3D(1.64823, 0, 0, 0, 1.64823, 0, 0, 0, 1.64823, 0, 0.170732, 0)
 light_color = Color(0.13, 0.4925, 1, 1)
 light_size = 1.0
