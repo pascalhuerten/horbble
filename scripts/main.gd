@@ -9,6 +9,8 @@ var levelTwoScene = preload("res://scenes/levelTwo.tscn")
 var levelTwoSpawn
 var lightPath
 var endSpawn
+var endScene = preload("res://scenes/endLevel.tscn")
+var endLevel
 var player
 var camera
 var current_level
@@ -122,4 +124,15 @@ func update_current_level():
 func _on_game_over() -> void:
 	print("Game Over: All slots are slotted and the portal is activated.")
 	# Move player to endSpawn
-	player.global_transform.origin = endSpawn.global_transform.origin
+	current_level = endLevel
+	# unload levelOne
+	endLevel = endScene.instantiate()
+	add_child(endLevel)
+	endLevel.global_transform.origin = endSpawn.global_transform.origin
+	levelTwo.queue_free()
+	levelTwo = null
+	# Get node "PlayerSpawn"
+	var playerSpawn = endLevel.get_node("PlayerSpawn")
+	player.global_transform.origin = playerSpawn.global_transform.origin
+	# Turn camera towards 160 degrees
+	camera.rotation_degrees = Vector3(0, 180, 0)

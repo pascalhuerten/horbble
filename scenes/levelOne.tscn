@@ -111,9 +111,3 @@ transform = Transform3D(0.864661, 0, 0.502356, 0, 1, 0, -0.502356, 0, 0.864661, 
 transform = Transform3D(0.863765, 0, 0.503895, 0, 1, 0, -0.503895, 0, 0.863765, -0.0196662, 0.212533, -0.0451329)
 stream = ExtResource("23_am6ck")
 max_distance = 10.0
-
-[node name="PickableObject3" parent="." instance=ExtResource("15_euv8r")]
-transform = Transform3D(-0.269827, 0, -0.962908, 0, 1, 0, 0.962908, 0, -0.269827, -0.628582, 0.910334, 2.26415)
-
-[node name="PickableObject4" parent="." instance=ExtResource("15_euv8r")]
-transform = Transform3D(-0.269827, 0, -0.962908, 0, 1, 0, 0.962908, 0, -0.269827, 0.404787, 0.910334, -1.42354)

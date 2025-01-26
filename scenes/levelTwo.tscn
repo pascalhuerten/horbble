@@ -30,11 +30,11 @@ radius = 0.793777
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_gjtt4"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rdi5t"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5n6u"]
 albedo_color = Color(0.11, 0.0568333, 0, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_37mke"]
-material = SubResource("StandardMaterial3D_rdi5t")
+material = SubResource("StandardMaterial3D_l5n6u")
 height = 0.001
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_8728r"]

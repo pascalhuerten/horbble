@@ -1,13 +1,77 @@
-[gd_scene load_steps=3 format=3 uid="uid://dd2dj5yrh11s2"]
+[gd_scene load_steps=11 format=3 uid="uid://bkbv2kpolk0jp"]
 
-[ext_resource type="Script" path="res://scripts/level_one.gd" id="1_v1fhn"]
+[ext_resource type="PackedScene" uid="uid://can65g7md2ihw" path="res://Blender/Endtext_hell.glb" id="1_q5ff7"]
+[ext_resource type="PackedScene" uid="uid://d1kfms7krddtr" path="res://Blender/tor.glb" id="2_pdrh8"]
 [ext_resource type="PackedScene" uid="uid://tbts3g3ul6yk" path="res://Blender/Endtext.glb" id="2_pims8"]
+[ext_resource type="PackedScene" uid="uid://cm00mwnrr6mw8" path="res://scenes/bubble.tscn" id="3_xumas"]
+[ext_resource type="PackedScene" uid="uid://ckxc525pdsdsc" path="res://Blender/tor_innen.glb" id="6_t3nye"]
+[ext_resource type="AudioStream" uid="uid://cwkefpkqq6twf" path="res://audio/Drone Epic Horror.mp3" id="7_rvmrj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6ahof"]
+size = Vector3(0.254333, 2.64291, 1.87665)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_5odib"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hldao"]
+albedo_color = Color(0.601236, 1, 0.932247, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jpo2l"]
+material = SubResource("StandardMaterial3D_hldao")
+height = 0.001
 
 [node name="LevelOne" type="Node3D"]
 transform = Transform3D(-0.269827, 0, 0.962909, 0, 1, 0, -0.962909, 0, -0.269827, 0, 0, 0)
-script = ExtResource("1_v1fhn")
-radius = 20
-max_distance = null
+
+[node name="Endtext_hell" parent="." instance=ExtResource("1_q5ff7")]
+transform = Transform3D(0.0680153, -0.997684, 4.36102e-08, 0, -4.37114e-08, -1, 0.997684, 0.0680153, -2.97304e-09, 0, 8.514, 0)
 
 [node name="Endtext" parent="." instance=ExtResource("2_pims8")]
 transform = Transform3D(0.0675973, -0.997713, 4.36114e-08, 0, -4.37114e-08, -1, 0.997713, 0.0675973, -2.95477e-09, 0, 8.51414, 0)
+visible = false
+
+[node name="tor" parent="." instance=ExtResource("2_pdrh8")]
+transform = Transform3D(0.999003, 0, 0.0446481, 0, 1, 0, -0.0446481, 0, 0.999003, -10.5284, -0.212533, 0.708984)
+
+[node name="PickableObject" parent="tor" instance=ExtResource("3_xumas")]
+transform = Transform3D(1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, 1, 0, 4.34868, 0)
+freeze = true
+
+[node name="Portal" type="Area3D" parent="tor"]
+transform = Transform3D(0.863765, 0, 0.503894, 0, 1, 0, -0.503894, 0, 0.863765, -0.0196662, 0.212533, -0.0451328)
+collision_layer = 8
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tor/Portal"]
+transform = Transform3D(0.874924, 0, -0.484259, 0, 1, 0, 0.484259, 0, 0.874924, -0.00758696, 1.29545, 0.051342)
+shape = SubResource("BoxShape3D_6ahof")
+
+[node name="PortalMesh" parent="tor/Portal" instance=ExtResource("6_t3nye")]
+transform = Transform3D(0.998216, 0, -0.597467, 0, 1.16336, 0, 0.597467, 0, 0.998216, 0.0197396, -0.400134, 0.0706749)
+
+[node name="PortalActiveSound" type="AudioStreamPlayer3D" parent="tor"]
+transform = Transform3D(0.863765, 0, 0.503895, 0, 1, 0, -0.503895, 0, 0.863765, -0.0196662, 0.212533, -0.0451329)
+stream = ExtResource("7_rvmrj")
+max_distance = 10.0
+
+[node name="PickableObject3" parent="tor" instance=ExtResource("3_xumas")]
+transform = Transform3D(1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, 0.00336313, 2.31516, 1.29215)
+freeze = true
+
+[node name="PickableObject4" parent="tor" instance=ExtResource("3_xumas")]
+transform = Transform3D(1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, -0.0105538, 2.31516, -1.35888)
+freeze = true
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(0.24316, 0, 7.45058e-09, 0, 0.24316, 0, -7.45058e-09, 0, 0.24316, 0.00248632, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_5odib")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(29.1792, 0, -1.90735e-06, 0, 0.24316, 0, 1.90735e-06, 0, 29.1792, 0.00151368, 0, 2.91038e-11)
+mesh = SubResource("CylinderMesh_jpo2l")
+skeleton = NodePath("../..")
+
+[node name="PlayerSpawn" type="Node3D" parent="."]
+transform = Transform3D(25.8113, 0, -13.6088, 0, 0.24316, 0, 13.6088, 0, 25.8113, -8.30348, 0, 1.10279)

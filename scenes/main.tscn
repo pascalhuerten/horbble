@@ -127,7 +127,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.4126, 0.0250043, 2.13305)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.1018, 0.42704, 2.42205)
 
 [node name="EndSpawn" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -93.0983)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -108.098)
 
 [node name="LevelTwoSpawn" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.928, 0, 5.947)
