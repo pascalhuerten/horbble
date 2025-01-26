@@ -24,22 +24,20 @@ func _ready():
 	camera = player.get_node("XRCamera3D") # Assuming the camera is a child of the player
 	environment = get_node(world_environment_path).environment
 	
-	spawn_level()
+	current_level = get_node("LevelOne")
 
-func spawn_level():
+func spawn_level(level):
 	# Spawn the first level if not already spawned
 	# Try to get level from current scene
-	current_level = get_node("LevelOne")
-	if !current_level:
-		current_level = level_one_scene.instantiate()
-		add_child(current_level)
-	current_level.global_transform.origin = player.global_transform.origin
+	current_level = level.instantiate()
+	add_child(current_level)
+	# TODO: Set location of the level
 	levels.append(current_level)
 
 func _process(_delta):
 	if player and current_level:
 		update_current_level()
-		
+
 		var distance = player.global_transform.origin.distance_to(current_level.global_transform.origin)
 		# Update the level_size based on the dimensions
 		var level_size = current_level.radius + max_distance
