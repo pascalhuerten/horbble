@@ -61,3 +61,4 @@ turn_mode = 1
 script = ExtResource("4_wjjae")
 
 [node name="PlayerBody" parent="." instance=ExtResource("6_fmtps")]
+push_rigid_bodies = false
