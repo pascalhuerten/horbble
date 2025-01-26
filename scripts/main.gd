@@ -26,6 +26,10 @@ func _ready():
 	
 	current_level = get_node("LevelOne")
 
+	# Connect to the game_over signal from the Global script
+	Globals.connect("game_over", _on_game_over)
+
+
 func spawn_level(level):
 	# Spawn the first level if not already spawned
 	# Try to get level from current scene
@@ -81,3 +85,9 @@ func update_current_level():
 	if closest_level:
 		if closest_level != current_level:
 			current_level = closest_level
+
+
+# Method to handle the game_over signal
+func _on_game_over() -> void:
+	print("Game Over: All slots are slotted and the portal is activated.")
+	# Add your game over logic here, such as displaying a game over screen or restarting the level

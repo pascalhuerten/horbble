@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cwkefpkqq6twf"
+path="res://.godot/imported/Drone Epic Horror.mp3-55831f3a789fd00d1104cdf1d15c64bd.mp3str"
+
+[deps]
+
+source_file="res://audio/Drone Epic Horror.mp3"
+dest_files=["res://.godot/imported/Drone Epic Horror.mp3-55831f3a789fd00d1104cdf1d15c64bd.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

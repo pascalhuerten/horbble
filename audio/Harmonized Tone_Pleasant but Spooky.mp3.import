@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://djatois6vdp4e"
+path="res://.godot/imported/Harmonized Tone_Pleasant but Spooky.mp3-a14ed8fa5be078e33f59098c9b6a1bcd.mp3str"
+
+[deps]
+
+source_file="res://audio/Harmonized Tone_Pleasant but Spooky.mp3"
+dest_files=["res://.godot/imported/Harmonized Tone_Pleasant but Spooky.mp3-a14ed8fa5be078e33f59098c9b6a1bcd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

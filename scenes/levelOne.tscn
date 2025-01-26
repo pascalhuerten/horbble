@@ -1,9 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://bdtaumm4onjxs"]
+[gd_scene load_steps=31 format=3 uid="uid://bdtaumm4onjxs"]
 
 [ext_resource type="Script" path="res://scripts/level_one.gd" id="1_t6r7c"]
+[ext_resource type="PackedScene" uid="uid://cfgmphtqu4eyy" path="res://Blender/stone_2.glb" id="2_7kc8g"]
 [ext_resource type="PackedScene" uid="uid://dbg4wlxww3qea" path="res://Blender/tree_circle_lv1.glb" id="2_l8rye"]
 [ext_resource type="PackedScene" uid="uid://3upu5nfpf8wr" path="res://Blender/creepy_tree.glb" id="3_dlisa"]
 [ext_resource type="AudioStream" uid="uid://cijjgk1d1aafd" path="res://audio/Laugh_spooky_4.mp3" id="4_8xf7j"]
+[ext_resource type="PackedScene" uid="uid://f12qvupbwmdw" path="res://Blender/stone.glb" id="4_dh26l"]
 [ext_resource type="AudioStream" uid="uid://d3uf22wn60qbm" path="res://audio/Creepy_ambience.mp3" id="5_tlumw"]
 [ext_resource type="AudioStream" uid="uid://d0yjcore3iq5" path="res://audio/Creepy_ambience_2.mp3" id="6_ae23d"]
 [ext_resource type="AudioStream" uid="uid://7nfvx351l6v4" path="res://audio/Creepy_ambience_3.mp3" id="7_bhu8e"]
@@ -15,6 +17,12 @@
 [ext_resource type="AudioStream" uid="uid://bg6ey8mkajfrf" path="res://audio/Crying_moaning_ambience.mp3" id="12_k7qx1"]
 [ext_resource type="AudioStream" uid="uid://c507yo6sctofe" path="res://audio/Frogs_pitchshift.mp3" id="14_udg7h"]
 [ext_resource type="AudioStream" uid="uid://dkuoalgvt74vs" path="res://audio/Birds_morning_calling.mp3" id="15_rfy2t"]
+[ext_resource type="PackedScene" uid="uid://d1kfms7krddtr" path="res://Blender/tor.glb" id="18_jmd53"]
+[ext_resource type="PackedScene" uid="uid://cm00mwnrr6mw8" path="res://scenes/bubble.tscn" id="19_44hv8"]
+[ext_resource type="Script" path="res://Blender/tor.gd" id="19_oqv8t"]
+[ext_resource type="Script" path="res://scenes/slot.gd" id="20_4k3lc"]
+[ext_resource type="AudioStream" uid="uid://djatois6vdp4e" path="res://audio/Harmonized Tone_Pleasant but Spooky.mp3" id="22_21s2v"]
+[ext_resource type="AudioStream" uid="uid://cwkefpkqq6twf" path="res://audio/Drone Epic Horror.mp3" id="23_qby0c"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_sqndg"]
 height = 3.35909
@@ -40,14 +48,42 @@ stream_5 = ExtResource("10_wocx8")
 stream_6 = ExtResource("11_448l5")
 stream_7 = ExtResource("12_k7qx1")
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_glx4p"]
+height = 0.541314
+radius = 0.26681
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vh5lv"]
+size = Vector3(0.254333, 2.64291, 1.87665)
+
 [node name="LevelOne" type="Node3D"]
 transform = Transform3D(-0.269827, 0, 0.962909, 0, 1, 0, -0.962909, 0, -0.269827, 0, 0, 0)
 script = ExtResource("1_t6r7c")
 radius = 20
 max_distance = null
 
+[node name="stone_2" parent="." instance=ExtResource("2_7kc8g")]
+transform = Transform3D(1.75831, 0, -5.49991, 0, 5.77414, 0, 5.49991, 0, 1.75831, 7.47932, 0, -8.88441)
+
 [node name="tree_circle_lv1" parent="." instance=ExtResource("2_l8rye")]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.982386, 0, 3.50576)
+
+[node name="stone" parent="tree_circle_lv1" instance=ExtResource("4_dh26l")]
+transform = Transform3D(-0.468207, 0, -0.883619, 0, 1, 0, 0.883619, 0, -0.468207, 5.71474, 0, -4.69447)
+
+[node name="stone4" parent="tree_circle_lv1" instance=ExtResource("4_dh26l")]
+transform = Transform3D(-0.0740216, 0, -0.607857, 0, 0.612347, 0, 0.607857, 0, -0.0740216, 7.04793, 0, -3.07273)
+
+[node name="stone2" parent="tree_circle_lv1" instance=ExtResource("4_dh26l")]
+transform = Transform3D(-4.44579, 0, -0.578355, 0, 4.48325, 0, 0.578355, 0, -4.44579, 11.1472, 0, 5.95514)
+
+[node name="stone3" parent="tree_circle_lv1" instance=ExtResource("4_dh26l")]
+transform = Transform3D(0.888986, 0, 4.39423, 0, 4.48325, 0, -4.39423, 0, 0.888986, -9.27658, 0, -10.9544)
+
+[node name="stone_2" parent="tree_circle_lv1" instance=ExtResource("2_7kc8g")]
+transform = Transform3D(1.61567, 0, 0, 0, 1.61567, 0, 0, 0, 1.61567, 7.37302, 0, -2.59611)
+
+[node name="stone_3" parent="tree_circle_lv1" instance=ExtResource("2_7kc8g")]
+transform = Transform3D(-0.332351, 0, 0.889102, 0, 0.949188, 0, -0.889102, 0, -0.332351, 7.54561, 0, -3.212)
 
 [node name="CreepyTree" parent="." instance=ExtResource("3_dlisa")]
 transform = Transform3D(-0.138775, 0, 0.990323, 0, 1, 0, -0.990323, 0, -0.138775, 5.52694, 0, -0.555978)
@@ -142,3 +178,82 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.13099, 0, 29.0164)
 stream = ExtResource("15_rfy2t")
 autoplay = true
 max_distance = 25.0
+
+[node name="tor" parent="." instance=ExtResource("18_jmd53")]
+transform = Transform3D(0.999003, 0, 0.0446481, 0, 1, 0, -0.0446481, 0, 0.999003, -6.97226, -0.212533, 0.0901458)
+script = ExtResource("19_oqv8t")
+slots = Array[NodePath]([NodePath("Slot2"), NodePath("Slot3")])
+
+[node name="PickableObject" parent="tor" instance=ExtResource("19_44hv8")]
+transform = Transform3D(1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, 1, 0, 4.34868, 0)
+freeze = true
+
+[node name="stone_2" parent="tor" instance=ExtResource("2_7kc8g")]
+transform = Transform3D(-0.707587, 0, 0.810352, 0, 1.0758, 0, -0.810352, 0, -0.707587, 0.380692, 0.227031, -2.01091)
+
+[node name="stone" parent="tor" instance=ExtResource("4_dh26l")]
+transform = Transform3D(0.458442, 0, 1.05768, 0, 1.15276, 0, -1.05768, 0, 0.458442, -1.63964, 0.238207, 0.714833)
+
+[node name="stone2" parent="tor" instance=ExtResource("4_dh26l")]
+transform = Transform3D(0.0796509, 0, 0.419452, 0, 0.426949, 0, -0.419452, 0, 0.0796509, 0.27153, 0.238205, 2.29318)
+
+[node name="Slot2" type="Area3D" parent="tor"]
+transform = Transform3D(0.999998, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 0.999998, -0.0309134, 2.30653, -1.31304)
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("20_4k3lc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tor/Slot2"]
+transform = Transform3D(-0.0208175, 0.997779, 0.0632686, -0.949901, -5.46213e-08, -0.31255, -0.311856, -0.0666054, 0.947792, 0.0131536, 0, -0.00772381)
+shape = SubResource("CylinderShape3D_glx4p")
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="tor/Slot2"]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 0, 0, 0)
+light_color = Color(0.46, 0.658, 1, 1)
+light_energy = 0.3
+light_size = 0.5
+
+[node name="SlotSound" type="AudioStreamPlayer3D" parent="tor/Slot2"]
+stream = ExtResource("22_21s2v")
+unit_size = 6.0
+max_distance = 30.0
+
+[node name="Slot3" type="Area3D" parent="tor"]
+transform = Transform3D(0.999998, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 0.999998, 0.0108042, 2.30653, 1.31706)
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("20_4k3lc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tor/Slot3"]
+transform = Transform3D(-0.0208175, 0.997779, 0.0632686, -0.949901, -5.46213e-08, -0.31255, -0.311856, -0.0666054, 0.947792, 0.0131536, 0, -0.00772381)
+shape = SubResource("CylinderShape3D_glx4p")
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="tor/Slot3"]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 0, 0, 0)
+light_color = Color(0.46, 0.658, 1, 1)
+light_energy = 0.3
+light_size = 0.5
+
+[node name="SlotSound" type="AudioStreamPlayer3D" parent="tor/Slot3"]
+stream = ExtResource("22_21s2v")
+unit_size = 6.0
+max_distance = 30.0
+
+[node name="Portal" type="Area3D" parent="tor"]
+transform = Transform3D(0.863765, 0, 0.503894, 0, 1, 0, -0.503894, 0, 0.863765, -0.0196662, 0.212533, -0.0451328)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tor/Portal"]
+transform = Transform3D(0.874924, 0, -0.484259, 0, 1, 0, 0.484259, 0, 0.874924, -0.00758696, 1.29545, 0.051342)
+shape = SubResource("BoxShape3D_vh5lv")
+disabled = true
+
+[node name="PortalActiveSound" type="AudioStreamPlayer3D" parent="tor"]
+transform = Transform3D(0.863765, 0, 0.503895, 0, 1, 0, -0.503895, 0, 0.863765, -0.0196662, 0.212533, -0.0451329)
+stream = ExtResource("23_qby0c")
+max_distance = 10.0
+
+[node name="Bubble" parent="." instance=ExtResource("19_44hv8")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -6.96423, 0.489956, 1.50187)
+
+[node name="Bubble2" parent="." instance=ExtResource("19_44hv8")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -7.05913, 0.489956, -1.32511)
