@@ -8,6 +8,8 @@ var bubble_scene = preload("res://scenes/bubble.tscn")
 
 var bubble_spawn
 
+var laugh
+
 # List to keep track of spawned bubbles
 var bubbles = []
 
@@ -18,6 +20,7 @@ var bubbles = []
 func _ready() -> void:
 	# Connect the collision signals
 	bubble_spawn = get_node("BubbleSpawn")
+	laugh = get_node("CreepyTree/Laugh")
 	
 	# Create and start the spawn timer
 	var spawn_timer = Timer.new()
@@ -51,6 +54,8 @@ func _spawn_bubble() -> void:
 		bubble_spawn.add_child(new_bubble)
 		new_bubble.global_transform.origin = bubble_spawn.global_transform.origin
 		bubbles.append(new_bubble)
+		# Play the laugh sound
+		laugh.play()
 
 # Function to check the positions of all bubbles and delete those that go far outside
 func _check_bubble_positions() -> void:

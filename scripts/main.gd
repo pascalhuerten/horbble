@@ -36,28 +36,26 @@ func spawn_level(level):
 
 func _process(_delta):
 	if player and current_level:
-		update_current_level()
-
 		var distance = player.global_transform.origin.distance_to(current_level.global_transform.origin)
 		# Update the level_size based on the dimensions
 		var level_size = current_level.radius + max_distance
 		if distance > level_size:
-			# Rotate camera towards the center of the level
-			player.look_at(current_level.global_transform.origin, Vector3.UP)
+			# Calculate the direction from the player to the center of the level
+			var direction_to_center = (current_level.global_transform.origin - player.global_transform.origin).normalized()
+			
+			# Calculate the new position on the opposite side of the circle
+			var new_position = current_level.global_transform.origin + direction_to_center * level_size
+			
+			# Move the player to the new position
+			player.global_transform.origin = new_position
+
+			# Make the camera look towards the center of the level
 			camera.look_at(current_level.global_transform.origin, Vector3.UP)
-			# Move player towards the center of the level by a small amount
-			var direction = -camera.global_transform.basis.z.normalized()
-			# Move the player towards the center of the level jsut so they are inside the level
-			var move_distance = distance - level_size + 0.1
-			player.global_transform.origin += direction * move_distance
 		
 		# Adjust fog density and ambient light intensity based on distance
-		# var threshold_distance = level_size * 0.5
-		var factor = clamp(distance / level_size, 0.0, 1.0)
-		var threshhold = 0.3
-		if factor < threshhold:
-			factor = threshhold
-
+		var threshold_distance = level_size * 0.5
+		# Calculate a factor between 0 and 1 based on the distance from the level excluding a zone near the middle, so factor 0 should start at 0.5 * level_size
+		var factor = clamp((distance - threshold_distance) / threshold_distance, 0.0, 1.0)
 		adjust_environment(factor)
 
 func adjust_environment(factor):

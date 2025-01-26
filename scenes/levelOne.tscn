@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://bdtaumm4onjxs"]
+[gd_scene load_steps=21 format=3 uid="uid://bdtaumm4onjxs"]
 
 [ext_resource type="Script" path="res://scripts/level_one.gd" id="1_t6r7c"]
 [ext_resource type="PackedScene" uid="uid://dbg4wlxww3qea" path="res://Blender/tree_circle_lv1.glb" id="2_l8rye"]
 [ext_resource type="PackedScene" uid="uid://3upu5nfpf8wr" path="res://Blender/creepy_tree.glb" id="3_dlisa"]
+[ext_resource type="AudioStream" uid="uid://cijjgk1d1aafd" path="res://audio/Laugh_spooky_4.mp3" id="4_8xf7j"]
 [ext_resource type="AudioStream" uid="uid://d3uf22wn60qbm" path="res://audio/Creepy_ambience.mp3" id="5_tlumw"]
 [ext_resource type="AudioStream" uid="uid://d0yjcore3iq5" path="res://audio/Creepy_ambience_2.mp3" id="6_ae23d"]
 [ext_resource type="AudioStream" uid="uid://7nfvx351l6v4" path="res://audio/Creepy_ambience_3.mp3" id="7_bhu8e"]
@@ -10,7 +11,10 @@
 [ext_resource type="AudioStream" uid="uid://b8edcbjw8tvr7" path="res://audio/Creepy_ambience_5.mp3" id="9_s5enj"]
 [ext_resource type="AudioStream" uid="uid://bnmh7psgefe6e" path="res://audio/Creepy_ambience_6.mp3" id="10_wocx8"]
 [ext_resource type="AudioStream" uid="uid://ox8pjrvuxp1a" path="res://audio/Creepy_ambience_7.mp3" id="11_448l5"]
+[ext_resource type="PackedScene" uid="uid://b2qcla1p5i5ny" path="res://Blender/tree_circle.glb" id="12_72neo"]
 [ext_resource type="AudioStream" uid="uid://bg6ey8mkajfrf" path="res://audio/Crying_moaning_ambience.mp3" id="12_k7qx1"]
+[ext_resource type="AudioStream" uid="uid://c507yo6sctofe" path="res://audio/Frogs_pitchshift.mp3" id="14_udg7h"]
+[ext_resource type="AudioStream" uid="uid://dkuoalgvt74vs" path="res://audio/Birds_morning_calling.mp3" id="15_rfy2t"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_sqndg"]
 height = 3.35909
@@ -45,20 +49,20 @@ max_distance = null
 [node name="tree_circle_lv1" parent="." instance=ExtResource("2_l8rye")]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.982386, 0, 3.50576)
 
-[node name="creepy_tree" parent="." instance=ExtResource("3_dlisa")]
+[node name="CreepyTree" parent="." instance=ExtResource("3_dlisa")]
 transform = Transform3D(-0.138775, 0, 0.990323, 0, 1, 0, -0.990323, 0, -0.138775, 5.52694, 0, -0.555978)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="creepy_tree" groups=["Lights"]]
+[node name="SpotLight3D" type="SpotLight3D" parent="CreepyTree" groups=["Lights"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.330345, 3.29499, -0.460146)
 light_color = Color(1, 0.49, 0.847, 1)
 light_energy = 2.676
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="creepy_tree" groups=["Lights"]]
+[node name="SpotLight3D2" type="SpotLight3D" parent="CreepyTree" groups=["Lights"]]
 transform = Transform3D(0.999997, 0, 0.00268766, 0, 1, 0, -0.00268766, 0, 0.999997, -0.217672, 3.31586, -0.501485)
 light_color = Color(1, 0.490196, 0.847059, 1)
 light_energy = 2.676
 
-[node name="SpotLight3D3" type="SpotLight3D" parent="creepy_tree" groups=["Lights"]]
+[node name="SpotLight3D3" type="SpotLight3D" parent="CreepyTree" groups=["Lights"]]
 transform = Transform3D(0.819222, -0.568173, 0.0778277, 0.149039, 0.0798865, -0.985599, 0.553773, 0.819023, 0.150125, 0, 1.17985, 0)
 light_color = Color(1, 0.490196, 0.847059, 1)
 light_energy = 8.0
@@ -66,7 +70,7 @@ light_size = 0.705
 spot_range = 3.15557
 spot_angle = 30.7478
 
-[node name="SpotLight3D4" type="SpotLight3D" parent="creepy_tree" groups=["Lights"]]
+[node name="SpotLight3D4" type="SpotLight3D" parent="CreepyTree" groups=["Lights"]]
 transform = Transform3D(-0.761119, -0.648596, -0.00476987, 0.00801883, -0.0167629, 0.999827, -0.648564, 0.760949, 0.0179595, 0, 8.90729, 0)
 light_color = Color(1, 0.490196, 0.847059, 1)
 light_energy = 8.0
@@ -74,10 +78,17 @@ light_size = 0.705
 spot_range = 8.0
 spot_angle = 11.4126
 
-[node name="StaticBody3D" type="StaticBody3D" parent="creepy_tree"]
+[node name="StaticBody3D" type="StaticBody3D" parent="CreepyTree"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="creepy_tree/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CreepyTree/StaticBody3D"]
 shape = SubResource("CylinderShape3D_sqndg")
+
+[node name="Laugh" type="AudioStreamPlayer3D" parent="CreepyTree"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 2.75175, 0)
+stream = ExtResource("4_8xf7j")
+max_db = 0.3
+autoplay = true
+max_distance = 12.0
 
 [node name="Floor" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0161517, 0)
@@ -95,11 +106,39 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.54155, 0, 0.712194)
 stream = SubResource("AudioStreamPlaylist_8728r")
 attenuation_model = 3
-volume_db = 1.0
-max_db = 4.0
+volume_db = 2.0
+unit_size = 5.0
+max_db = 5.0
 autoplay = true
 max_distance = 100.0
 playback_type = 1
 
 [node name="BubbleSpawn" type="Node3D" parent="."]
-transform = Transform3D(0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 0.999999, 5.44675, 1.72111, -0.596209)
+transform = Transform3D(0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 0.999999, 5.43311, 1.91907, -0.547535)
+
+[node name="tree_circle" parent="." instance=ExtResource("12_72neo")]
+transform = Transform3D(-0.139237, 0, 0.993617, 0, 1.00333, 0, -0.993617, 0, -0.139237, -2.06288, 0, -0.96501)
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7631, 0, 6.93914)
+stream = ExtResource("14_udg7h")
+autoplay = true
+max_distance = 25.0
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.3204, 0, -7.65574)
+stream = ExtResource("14_udg7h")
+autoplay = true
+max_distance = 25.0
+
+[node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8904, 0, -28.1578)
+stream = ExtResource("15_rfy2t")
+autoplay = true
+max_distance = 25.0
+
+[node name="AudioStreamPlayer3D5" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.13099, 0, 29.0164)
+stream = ExtResource("15_rfy2t")
+autoplay = true
+max_distance = 25.0
