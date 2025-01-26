@@ -13,7 +13,6 @@
 [ext_resource type="AudioStream" uid="uid://b8edcbjw8tvr7" path="res://audio/Creepy_ambience_5.mp3" id="9_s5enj"]
 [ext_resource type="AudioStream" uid="uid://bnmh7psgefe6e" path="res://audio/Creepy_ambience_6.mp3" id="10_wocx8"]
 [ext_resource type="AudioStream" uid="uid://ox8pjrvuxp1a" path="res://audio/Creepy_ambience_7.mp3" id="11_448l5"]
-[ext_resource type="PackedScene" uid="uid://b2qcla1p5i5ny" path="res://Blender/tree_circle.glb" id="12_72neo"]
 [ext_resource type="AudioStream" uid="uid://bg6ey8mkajfrf" path="res://audio/Crying_moaning_ambience.mp3" id="12_k7qx1"]
 [ext_resource type="AudioStream" uid="uid://c507yo6sctofe" path="res://audio/Frogs_pitchshift.mp3" id="14_udg7h"]
 [ext_resource type="AudioStream" uid="uid://dkuoalgvt74vs" path="res://audio/Birds_morning_calling.mp3" id="15_rfy2t"]
@@ -22,19 +21,21 @@
 [ext_resource type="Script" path="res://Blender/tor.gd" id="19_oqv8t"]
 [ext_resource type="Script" path="res://scenes/slot.gd" id="20_4k3lc"]
 [ext_resource type="AudioStream" uid="uid://djatois6vdp4e" path="res://audio/Harmonized Tone_Pleasant but Spooky.mp3" id="22_21s2v"]
+[ext_resource type="PackedScene" uid="uid://ckxc525pdsdsc" path="res://Blender/tor_innen.glb" id="22_fntth"]
 [ext_resource type="AudioStream" uid="uid://cwkefpkqq6twf" path="res://audio/Drone Epic Horror.mp3" id="23_qby0c"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_sqndg"]
 height = 3.35909
-radius = 0.754765
+radius = 0.793777
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_gjtt4"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wglvm"]
-albedo_color = Color(0.152168, 0.0678932, 0.00982807, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rdi5t"]
+albedo_color = Color(0.11, 0.0568333, 0, 1)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_0tx2u"]
-material = SubResource("StandardMaterial3D_wglvm")
+[sub_resource type="CylinderMesh" id="CylinderMesh_37mke"]
+material = SubResource("StandardMaterial3D_rdi5t")
+height = 0.001
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_8728r"]
 shuffle = true
@@ -61,9 +62,6 @@ script = ExtResource("1_t6r7c")
 radius = 20
 max_distance = null
 
-[node name="stone_2" parent="." instance=ExtResource("2_7kc8g")]
-transform = Transform3D(1.75831, 0, -5.49991, 0, 5.77414, 0, 5.49991, 0, 1.75831, 7.47932, 0, -8.88441)
-
 [node name="tree_circle_lv1" parent="." instance=ExtResource("2_l8rye")]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.982386, 0, 3.50576)
 
@@ -73,12 +71,6 @@ transform = Transform3D(-0.468207, 0, -0.883619, 0, 1, 0, 0.883619, 0, -0.468207
 [node name="stone4" parent="tree_circle_lv1" instance=ExtResource("4_dh26l")]
 transform = Transform3D(-0.0740216, 0, -0.607857, 0, 0.612347, 0, 0.607857, 0, -0.0740216, 7.04793, 0, -3.07273)
 
-[node name="stone2" parent="tree_circle_lv1" instance=ExtResource("4_dh26l")]
-transform = Transform3D(-4.44579, 0, -0.578355, 0, 4.48325, 0, 0.578355, 0, -4.44579, 11.1472, 0, 5.95514)
-
-[node name="stone3" parent="tree_circle_lv1" instance=ExtResource("4_dh26l")]
-transform = Transform3D(0.888986, 0, 4.39423, 0, 4.48325, 0, -4.39423, 0, 0.888986, -9.27658, 0, -10.9544)
-
 [node name="stone_2" parent="tree_circle_lv1" instance=ExtResource("2_7kc8g")]
 transform = Transform3D(1.61567, 0, 0, 0, 1.61567, 0, 0, 0, 1.61567, 7.37302, 0, -2.59611)
 
@@ -86,7 +78,7 @@ transform = Transform3D(1.61567, 0, 0, 0, 1.61567, 0, 0, 0, 1.61567, 7.37302, 0,
 transform = Transform3D(-0.332351, 0, 0.889102, 0, 0.949188, 0, -0.889102, 0, -0.332351, 7.54561, 0, -3.212)
 
 [node name="CreepyTree" parent="." instance=ExtResource("3_dlisa")]
-transform = Transform3D(-0.138775, 0, 0.990323, 0, 1, 0, -0.990323, 0, -0.138775, 5.52694, 0, -0.555978)
+transform = Transform3D(-0.138775, 0, 0.990323, 0, 1, 0, -0.990323, 0, -0.138775, 5.52694, -0.990426, -0.555978)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CreepyTree" groups=["Lights"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.330345, 3.29499, -0.460146)
@@ -127,15 +119,15 @@ autoplay = true
 max_distance = 12.0
 
 [node name="Floor" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0161517, 0)
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+transform = Transform3D(1, 0, 1.90735e-08, 0, 1, 0, -1.90735e-08, 0, 1, 0.004, 0, 0)
 shape = SubResource("WorldBoundaryShape3D_gjtt4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(46.9979, 0, 0, 0, 10.1175, 0, 0, 0, 52.0061, 0, 0, 0)
-mesh = SubResource("PlaneMesh_0tx2u")
+transform = Transform3D(120, 0, -9.53674e-06, 0, 1, 0, 9.53674e-06, 0, 120, 0, 0, 0)
+mesh = SubResource("CylinderMesh_37mke")
 skeleton = NodePath("../..")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
@@ -150,10 +142,7 @@ max_distance = 100.0
 playback_type = 1
 
 [node name="BubbleSpawn" type="Node3D" parent="."]
-transform = Transform3D(0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 0.999999, 5.43311, 1.91907, -0.547535)
-
-[node name="tree_circle" parent="." instance=ExtResource("12_72neo")]
-transform = Transform3D(-0.139237, 0, 0.993617, 0, 1.00333, 0, -0.993617, 0, -0.139237, -2.06288, 0, -0.96501)
+transform = Transform3D(0.999999, 0, -1.49012e-07, 0, 1, 0, 1.49012e-07, 0, 0.999999, 5.43311, 0.867834, -0.547535)
 
 [node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7631, 0, 6.93914)
@@ -241,19 +230,24 @@ max_distance = 30.0
 
 [node name="Portal" type="Area3D" parent="tor"]
 transform = Transform3D(0.863765, 0, 0.503894, 0, 1, 0, -0.503894, 0, 0.863765, -0.0196662, 0.212533, -0.0451328)
+collision_layer = 8
+collision_mask = 15
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="tor/Portal"]
 transform = Transform3D(0.874924, 0, -0.484259, 0, 1, 0, 0.484259, 0, 0.874924, -0.00758696, 1.29545, 0.051342)
 shape = SubResource("BoxShape3D_vh5lv")
-disabled = true
+
+[node name="PortalMesh" parent="tor/Portal" instance=ExtResource("22_fntth")]
+transform = Transform3D(0.998216, 0, -0.597467, 0, 1.16336, 0, 0.597467, 0, 0.998216, 0.0197396, -0.400134, 0.0706749)
+visible = false
 
 [node name="PortalActiveSound" type="AudioStreamPlayer3D" parent="tor"]
 transform = Transform3D(0.863765, 0, 0.503895, 0, 1, 0, -0.503895, 0, 0.863765, -0.0196662, 0.212533, -0.0451329)
 stream = ExtResource("23_qby0c")
 max_distance = 10.0
 
-[node name="Bubble" parent="." instance=ExtResource("19_44hv8")]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -6.96423, 0.489956, 1.50187)
+[node name="PickableObject" parent="." instance=ExtResource("19_44hv8")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -7.14305, 0, -1.36043)
 
-[node name="Bubble2" parent="." instance=ExtResource("19_44hv8")]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -7.05913, 0.489956, -1.32511)
+[node name="PickableObject2" parent="." instance=ExtResource("19_44hv8")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -6.86606, 0, 1.54984)

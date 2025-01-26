@@ -7,7 +7,6 @@ var slot_sound
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(self.name, "ready")
 	self.connect("body_entered", _on_body_entered)
 	tor = get_parent()
 	slot_sound = get_node("SlotSound")
