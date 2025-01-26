@@ -69,7 +69,7 @@ func _process(_delta):
 	if not _is_transitioning:
 		_no_escape()
 	else:
-		# _check_end_level_transition()
+		_check_end_level_transition()
 		pass
 
 func adjust_environment(factor):
@@ -135,4 +135,4 @@ func _on_game_over() -> void:
 	var playerSpawn = endLevel.get_node("PlayerSpawn")
 	player.global_transform.origin = playerSpawn.global_transform.origin
 	# Turn camera towards 160 degrees
-	camera.look_at(current_level.global_transform.origin, Vector3.UP)
+	camera.look_at(endLevel.global_transform.origin, Vector3.UP)
