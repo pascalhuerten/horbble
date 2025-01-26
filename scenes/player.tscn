@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bjx4nrdka8ghe"]
+[gd_scene load_steps=17 format=3 uid="uid://bjx4nrdka8ghe"]
 
 [ext_resource type="Script" path="res://scripts/character.gd" id="1_hfbi3"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="3_43ns7"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="6_fmtps"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="8_4wgqh"]
 [ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="9_yklui"]
+[ext_resource type="AudioStream" uid="uid://bcbqkpivr8nck" path="res://audio/Breathing_fast.mp3" id="11_3srp1"]
+[ext_resource type="AudioStream" uid="uid://4j3rd6c2nnms" path="res://audio/Breathing_slow.mp3" id="12_mk3gw"]
+[ext_resource type="AudioStream" uid="uid://dttov7e2fuqvi" path="res://audio/Breath_out_deep.mp3" id="13_thahq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7twps"]
 size = Vector3(92.9249, 1, 103.276)
@@ -17,6 +20,13 @@ size = Vector3(92.9249, 1, 103.276)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6874r"]
 transparency = 1
 albedo_color = Color(0.3726, 0.77355, 0.81, 0.0235294)
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_pk6xi"]
+shuffle = true
+stream_count = 3
+stream_0 = ExtResource("11_3srp1")
+stream_1 = ExtResource("12_mk3gw")
+stream_2 = ExtResource("13_thahq")
 
 [node name="Player" type="XROrigin3D"]
 script = ExtResource("1_hfbi3")
@@ -79,3 +89,10 @@ player_material = SubResource("StandardMaterial3D_6874r")
 
 [node name="PlayerBody" parent="." instance=ExtResource("6_fmtps")]
 push_rigid_bodies = false
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamPlaylist_pk6xi")
+volume_db = 0.2
+unit_size = 0.6
+max_db = 0.2
+autoplay = true
