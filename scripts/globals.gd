@@ -6,6 +6,7 @@ var is_game_over: bool = false
 
 # Define the game_over signal
 signal game_over
+signal level_one_finished
 
 func _ready():
     xr_interface = XRServer.find_interface("OpenXR")
@@ -27,3 +28,6 @@ func emit_game_over() -> void:
     if not is_game_over:
         is_game_over = true
         emit_signal("game_over")
+
+func emit_level_one_finished() -> void:
+    emit_signal("level_one_finished")

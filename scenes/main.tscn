@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqgshxur00tmh"]
+[gd_scene load_steps=11 format=3 uid="uid://bqgshxur00tmh"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_y55yf"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/xr/start_xr.gd" id="2_5734l"]
 [ext_resource type="PackedScene" uid="uid://b0nt4n13a6448" path="res://addons/starlight/Stars.tscn" id="4_b4mbo"]
-[ext_resource type="PackedScene" uid="uid://bdtaumm4onjxs" path="res://scenes/levelOne.tscn" id="4_v4kb1"]
+[ext_resource type="PackedScene" uid="uid://dtd1rv54uu706" path="res://scenes/levelOne.tscn" id="4_v4kb1"]
 [ext_resource type="Script" path="res://addons/starlight/StarGenerator.gd" id="5_8kh50"]
 [ext_resource type="PackedScene" uid="uid://bjx4nrdka8ghe" path="res://scenes/player.tscn" id="6_sd7xk"]
+[ext_resource type="PackedScene" uid="uid://dueo8kodwu77b" path="res://Blender/light_bubble.glb" id="8_mv3pl"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_yfhov"]
 
@@ -33,6 +34,7 @@ adjustment_saturation = 0.92
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_y55yf")
+world_environment_path = null
 
 [node name="XRToolsStartXR" type="Node" parent="."]
 script = ExtResource("2_5734l")
@@ -60,7 +62,72 @@ star_count = 1000
 rng_seed = 1234
 generate_at_origin = false
 
-[node name="LevelOne" parent="." instance=ExtResource("4_v4kb1")]
-
 [node name="Player" parent="." instance=ExtResource("6_sd7xk")]
-transform = Transform3D(0.837519, 0, -0.546409, 0, 1, 0, 0.546409, 0, 0.837519, -9.41055, 0, 14.0668)
+transform = Transform3D(-0.976774, 0, -0.214275, 0, 1, 0, 0.214275, 0, -0.976774, -0.590906, 0, -13.6307)
+
+[node name="LevelOne" parent="." instance=ExtResource("4_v4kb1")]
+slots = null
+
+[node name="LightPath" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3331, 0.812321, -0.326606)
+visible = false
+
+[node name="light_bubble" parent="LightPath" instance=ExtResource("8_mv3pl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.867, 0.106168, -1.51407)
+
+[node name="light_bubble2" parent="LightPath" instance=ExtResource("8_mv3pl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6337, 0.0335984, -1.36808)
+
+[node name="light_bubble4" parent="LightPath" instance=ExtResource("8_mv3pl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.852089, 0.210035, -1.84735)
+
+[node name="light_bubble5" parent="LightPath" instance=ExtResource("8_mv3pl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63207, 0.0037533, -1.29261)
+
+[node name="light_bubble6" parent="LightPath" instance=ExtResource("8_mv3pl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.13318, 0.0212713, -0.668603)
+
+[node name="light_bubble7" parent="LightPath" instance=ExtResource("8_mv3pl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.78493, -0.0443991, -0.900841)
+
+[node name="light_bubble8" parent="LightPath" instance=ExtResource("8_mv3pl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.69631, 0.189095, -1.85099)
+
+[node name="light_bubble10" parent="LightPath" instance=ExtResource("8_mv3pl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6119, 0.0876597, -0.489949)
+
+[node name="light_bubble11" parent="LightPath" instance=ExtResource("8_mv3pl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2669, 0.191411, -2.20865)
+
+[node name="light_bubble12" parent="LightPath" instance=ExtResource("8_mv3pl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2321, 0.466129, -2.74207)
+
+[node name="light_bubble13" parent="LightPath" instance=ExtResource("8_mv3pl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.6915, 0.0194443, -3.29368)
+
+[node name="light_bubble14" parent="LightPath" instance=ExtResource("8_mv3pl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9545, 0.117666, -1.47007)
+
+[node name="light_bubble15" parent="LightPath" instance=ExtResource("8_mv3pl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.1704, 0.388767, -0.62605)
+
+[node name="light_bubble16" parent="LightPath" instance=ExtResource("8_mv3pl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.9834, 0.131427, 0.35297)
+
+[node name="light_bubble17" parent="LightPath" instance=ExtResource("8_mv3pl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9528, 0.39428, 1.68817)
+
+[node name="light_bubble18" parent="LightPath" instance=ExtResource("8_mv3pl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.0195, 0.0829843, 2.02295)
+
+[node name="light_bubble19" parent="LightPath" instance=ExtResource("8_mv3pl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.4126, 0.0250043, 2.13305)
+
+[node name="light_bubble20" parent="LightPath" instance=ExtResource("8_mv3pl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.1018, 0.42704, 2.42205)
+
+[node name="EndSpawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -93.0983)
+
+[node name="LevelTwoSpawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.928, 0, 5.947)
