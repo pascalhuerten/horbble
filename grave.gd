@@ -22,12 +22,13 @@ func _on_body_entered(flower: XRToolsPickable) -> void:
 	# Check if bubble in group "Bubbles"
 	if not is_slotted and flower.is_in_group("Flowers"):
 		# Move the bubble to the slot's position
-		flower.global_transform.origin = global_transform.origin
 
+		var collisionBody = get_node("CollisionBody3D")
+		flower.global_transform.origin = collisionBody.global_transform.origin
 		# Rotate flower to lie flat on this surface
-		var up = global_transform.basis.y
-		var forward = global_transform.basis.z
-		var right = global_transform.basis.x
+		var up = collisionBody.global_transform.basis.y
+		var forward = collisionBody.global_transform.basis.z
+		var right = collisionBody.global_transform.basis.x
 		var newrotation = Basis()
 		newrotation[0] = right
 		newrotation[1] = up
