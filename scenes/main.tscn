@@ -63,7 +63,7 @@ rng_seed = 1234
 generate_at_origin = false
 
 [node name="Player" parent="." instance=ExtResource("6_sd7xk")]
-transform = Transform3D(-0.976774, 0, -0.214275, 0, 1, 0, 0.214275, 0, -0.976774, -0.590906, 0, -13.6307)
+transform = Transform3D(-0.976774, 0, -0.214275, 0, 1, 0, 0.214275, 0, -0.976774, -0.590906, 0, -12.4236)
 
 [node name="LevelOne" parent="." instance=ExtResource("4_v4kb1")]
 slots = null

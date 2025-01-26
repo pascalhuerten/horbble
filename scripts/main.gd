@@ -135,4 +135,4 @@ func _on_game_over() -> void:
 	var playerSpawn = endLevel.get_node("PlayerSpawn")
 	player.global_transform.origin = playerSpawn.global_transform.origin
 	# Turn camera towards 160 degrees
-	camera.rotation_degrees = Vector3(0, 180, 0)
+	camera.look_at(current_level.global_transform.origin, Vector3.UP)
