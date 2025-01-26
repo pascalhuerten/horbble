@@ -1,15 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://cm00mwnrr6mw8"]
+[gd_scene load_steps=6 format=3 uid="uid://cm00mwnrr6mw8"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_ucmmo"]
 [ext_resource type="PackedScene" uid="uid://dueo8kodwu77b" path="res://Blender/light_bubble.glb" id="2_updsw"]
-[ext_resource type="Script" path="res://bubble.gd" id="2_xp8pa"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="3_4cp5n"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="4_ntw0c"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_41uj5"]
 
 [node name="PickableObject" instance=ExtResource("1_ucmmo")]
-script = ExtResource("2_xp8pa")
+gravity_scale = -0.05
+second_hand_grab = 1
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(0.401498, 0, 0, 0, 0.401498, 0, 0, 0, 0.401498, 0, 0, 0)
@@ -19,7 +19,11 @@ shape = SubResource("SphereShape3D_41uj5")
 transform = Transform3D(1.30211, 0, 0, 0, 1.30211, 0, 0, 0, 1.30211, 0, 0, 0)
 
 [node name="GrabPointHandRight" parent="." index="2" instance=ExtResource("3_4cp5n")]
-transform = Transform3D(1.2674, 0, 0, 0, 1.2674, 0, 0, 0, 1.2674, 0.0746603, 0.0855661, -0.0901116)
+transform = Transform3D(0.785812, 0.89422, 0, -0.89422, 0.785812, 0, 0, 0, 1.19043, 0.0709667, -0.0337694, -0.106535)
 
 [node name="GrabPointHandLeft" parent="." index="3" instance=ExtResource("4_ntw0c")]
-transform = Transform3D(1.27331, 0, 0, 0, 1.27331, 0, 0, 0, 1.27331, -0.0800857, 0.0782263, -0.0861605)
+transform = Transform3D(0.777938, -0.937697, 0, 0.937697, 0.777938, 0, 0, 0, 1.21839, -0.0654346, -0.0308901, -0.111364)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="4"]
+light_color = Color(0.67, 1, 0.857, 1)
+light_size = 0.21

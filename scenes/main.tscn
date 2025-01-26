@@ -33,6 +33,7 @@ adjustment_saturation = 0.92
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_y55yf")
+world_environment_path = null
 
 [node name="XRToolsStartXR" type="Node" parent="."]
 script = ExtResource("2_5734l")
@@ -63,6 +64,4 @@ generate_at_origin = false
 [node name="LevelOne" parent="." instance=ExtResource("4_v4kb1")]
 
 [node name="Player" parent="." instance=ExtResource("6_sd7xk")]
-
-[editable path="LevelOne"]
-[editable path="Player"]
+transform = Transform3D(0.625052, 0, 0.780583, 0, 1, 0, -0.780583, 0, 0.625052, 17.5443, 0, 10.6384)
